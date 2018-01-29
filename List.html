@@ -10,14 +10,19 @@
   <ul id='The_list'>
   </ul>
 
-  <p><input type='text' id='List_input' maxlength="50" />
+  <p><input type='text' id='List_input' />
     <button id='add_to_list'>Add to List</button></p>
 
 
   <script>
     document.getElementById('add_to_list').addEventListener('click', addinput)
 
-    function addinput()
+    function addinput() {
+      var list_element = document.getElementById('The_list')
+      var new_item = document.createElement('li')
+      var input_item = document.getElementById('List_input')
+      list_element.appendChild(input_item)
+    }
   </script>
 
 </body>
