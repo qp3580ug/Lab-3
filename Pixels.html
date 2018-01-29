@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+</head>
+
+<body>
+ <h2 id='Pixels'></h2>
+
+  <script>
+  var width_of_window = window.innerWidth;
+  var pixels_para = document.getElementById("Pixels");
+  var height_of_window = window.innerHeight;
+  pixels_para.innerHTML = "Pixels = " + (height_of_window * width_of_window);
+  window.addEventListener('resize', windowWasResized);
+
+  function windowWasResized() {
+    width_of_window = window.innerWidth;
+    height_of_window = window.innerHeight;
+    pixels_para.innerHTML = "Pixels = " + (height_of_window * width_of_window);    
+  }
+
+  </script>
+
+</body>
+</html>
