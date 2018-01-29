@@ -10,18 +10,27 @@
   <ul id='The_list'>
   </ul>
 
-  <p><input type='text' id='List_input' />
+  <p><input type='text' id='List_input'  />
     <button id='add_to_list'>Add to List</button></p>
+  <p id='validation_message'></p>
 
 
   <script>
-    document.getElementById('add_to_list').addEventListener('click', addinput)
+    document.getElementById('add_to_list').addEventListener('click', addinput);
+    document.getElementById('add_to_list').addEventListener('click', clearbox);
 
     function addinput() {
-      var list_element = document.getElementById('The_list')
-      var new_item = document.createElement('li')
-      var input_item = document.getElementById('List_input')
-      list_element.appendChild(input_item)
+      var list_element = document.getElementById('The_list');
+      var new_item = document.createElement('li');
+      var input_item = document.getElementById('List_input').value;
+      var validate_message = document.getElementById('validation_message');
+      if (input_item.length > 50) {
+        validate_message.innerHTML = 'Your Input Text needs to be less than 50 characters';
+      } else {
+        new_item.innerHTML = input_item;
+        list_element.appendChild(new_item);
+        document.getElementById('List_input').value = ''
+      }
     }
   </script>
 
